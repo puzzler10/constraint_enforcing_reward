@@ -1,0 +1,6 @@
+ds_name,split,sts_threshold,contradiction_threshold,acceptability_threshold,pp_letter_diff_threshold,datetime,attack_num,attack_code,successful_attacks,failed_attacks,skipped_attacks,original_accuracy,attack_accuracy_perc,attack_success_rate,avg_word_perturbed,avg_word_perturbed_perc,max_words_changed,avg_num_queries,avg_original_perplexity,avg_attack_perplexity,avg_attack_use_score
+financial,test,0.8,0.2,0.5,30,2023-02-07_153539,7,TextFooler,81,78,0,100.0,49.06,50.94,12.95,16.29,5,72.0,78.55,190.1,0.82
+financial,test,0.8,0.2,0.5,30,2023-02-08_084144,10,BAE-R,96,63,0,100.0,39.62,60.38,12.95,15.1,5,76.47,69.01,114.74,0.82
+rotten_tomatoes,test,0.8,0.2,0.5,30,2023-02-08_084148,10,BAE-R,234,125,0,100.0,34.82,65.18,10.69,17.5,6,53.09,71.78,107.93,0.81
+financial,test,0.8,0.2,0.5,30,2023-02-08_102548,9,IGA,121,38,0,100.0,23.9,76.1,12.95,17.34,7,859.96,69.56,171.57,0.82
+rotten_tomatoes,test,0.8,0.2,0.5,30,2023-02-08_133110,9,IGA,312,47,0,100.0,13.09,86.91,10.69,21.36,7,511.75,68.89,148.34,0.81

@@ -1,0 +1,20 @@
+{
+    "os": "Linux-3.10.0-1160.59.1.el7.x86_64-x86_64-with-glibc2.17",
+    "python": "3.10.9",
+    "heartbeatAt": "2023-02-02T03:59:28.069944",
+    "startedAt": "2023-02-02T03:59:23.791595",
+    "docker": null,
+    "gpu": "Quadro RTX 6000",
+    "gpu_count": 1,
+    "cpu_count": 26,
+    "cuda": null,
+    "args": [
+        "--n_eval_seq",
+        "8"
+    ],
+    "state": "running",
+    "program": "/home/tproth/Data/travis_release/run.py",
+    "host": "mars25.ihpc.uts.edu.au",
+    "username": "tproth",
+    "executable": "/home/tproth/Programs/miniconda/envs/constrained_adversarial_reward/bin/python"
+}

@@ -1,0 +1,25 @@
+02-25 21:58 src.utils    DEBUG    Disabling all loggers except those from the following libraries: ['src', 'wandb']
+02-25 22:01 src.data     INFO     Will load dataset financial with use_small_ds set to False
+02-25 22:02 src.data     DEBUG    Dataset lengths: {'train': 1370, 'valid': 167, 'test': 159}
+02-25 22:02 src.data     DEBUG    Total training epochs:860
+02-25 22:02 src.data     DEBUG    Last batch size in each epoch is: {'train': 10, 'valid': 7, 'test': 15, 'train_eval': 10}
+02-25 22:02 src.data     DEBUG    Dataloader batch sizes are: {'train': [16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 10], 'valid': [16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 7], 'test': [16, 16, 16, 16, 16, 16, 16, 16, 16, 15], 'train_eval': [16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 10]}
+02-25 22:02 wandb.sdk.lib.git DEBUG    git repository is invalid
+02-25 22:20 src.trainer  INFO     Launching initial eval run: train
+02-25 22:22 src.trainer  INFO     Launching initial eval run: valid
+02-25 22:22 src.trainer  INFO     Epoch: 0. Min epochs before early stopping activated: 8
+02-25 22:22 src.trainer  INFO     Eval metric: 0.048 | Running median: 0.048
+02-25 22:22 src.trainer  INFO     Launching initial eval run: test
+02-25 22:22 src.trainer  INFO     Now on epoch 1 of 10
+02-25 22:28 src.trainer  INFO     Epoch: 1. Min epochs before early stopping activated: 8
+02-25 22:28 src.trainer  INFO     Eval metric: 0.066 | Running median: 0.057
+02-25 22:28 src.trainer  INFO     Now on epoch 2 of 10
+02-25 22:33 src.trainer  INFO     Epoch: 2. Min epochs before early stopping activated: 8
+02-25 22:33 src.trainer  INFO     Eval metric: 0.060 | Running median: 0.060
+02-25 22:33 src.trainer  INFO     Now on epoch 3 of 10
+02-25 22:39 src.trainer  INFO     Epoch: 3. Min epochs before early stopping activated: 8
+02-25 22:39 src.trainer  INFO     Eval metric: 0.060 | Running median: 0.060
+02-25 22:39 src.trainer  INFO     Now on epoch 4 of 10
+02-25 22:44 src.trainer  INFO     Epoch: 4. Min epochs before early stopping activated: 8
+02-25 22:44 src.trainer  INFO     Eval metric: 0.054 | Running median: 0.060
+02-25 22:44 src.trainer  INFO     Now on epoch 5 of 10

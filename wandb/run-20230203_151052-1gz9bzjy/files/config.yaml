@@ -1,0 +1,341 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.12.10
+    framework: huggingface
+    huggingface_version: 4.26.0
+    is_jupyter_run: false
+    is_kaggle_kernel: true
+    python_version: 3.10.9
+    start_time: 1675397452
+    t:
+      1:
+      - 1
+      - 5
+      - 11
+      3:
+      - 16
+      4: 3.10.9
+      5: 0.12.10
+      6: 4.26.0
+      8:
+      - 2
+      - 5
+acc_leftover_batches:
+  desc: null
+  value: 0
+acc_steps:
+  desc: null
+  value: 2
+acceptability_threshold:
+  desc: null
+  value: 0.5
+batch_size_eval:
+  desc: null
+  value: 16
+batch_size_train:
+  desc: null
+  value: 16
+bucket_by_length:
+  desc: null
+  value: true
+cola_name:
+  desc: null
+  value: textattack/albert-base-v2-CoLA
+cola_positive_label:
+  desc: null
+  value: 1
+contra_label:
+  desc: null
+  value: 2
+contradiction_threshold:
+  desc: null
+  value: 0.2
+dataset_name:
+  desc: null
+  value: financial
+datetime_run:
+  desc: null
+  value: 2023-02-03_151015
+decode_method_eval:
+  desc: null
+  value: beam_search
+decode_method_train:
+  desc: null
+  value: sample
+device:
+  desc: null
+  value: cuda
+devicenum:
+  desc: null
+  value: 0
+dl_batch_sizes:
+  desc: null
+  value:
+    test:
+    - 16
+    - 16
+    - 16
+    - 7
+    train:
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 10
+    train_eval:
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 16
+    - 10
+    valid:
+    - 16
+    - 16
+    - 16
+    - 16
+    - 1
+dl_leftover_batch_size:
+  desc: null
+  value:
+    test: 7
+    train: 10
+    train_eval: 10
+    valid: 1
+dl_n_batches:
+  desc: null
+  value:
+    test: 4
+    train: 29
+    train_eval: 29
+    valid: 5
+ds_length:
+  desc: null
+  value:
+    test: 55
+    train: 458
+    valid: 65
+early_stopping:
+  desc: null
+  value: true
+early_stopping_metric:
+  desc: null
+  value: any_adv_example_proportion
+early_stopping_min_epochs:
+  desc: null
+  value: 8
+eval_freq:
+  desc: null
+  value: 1
+gen_params_eval:
+  desc: null
+  value:
+    diversity_penalty: null
+    do_sample: false
+    num_beam_groups: 1
+    num_beams: 8
+    num_return_sequences: 8
+    temperature: null
+    top_p: null
+gen_params_train:
+  desc: null
+  value:
+    do_sample: true
+    temperature: 1
+    top_p: 0.95
+kl_coef:
+  desc: null
+  value: 0.25
+label_cname:
+  desc: null
+  value: label
+lr:
+  desc: null
+  value: 8.0e-05
+max_pp_length:
+  desc: null
+  value: 48
+min_pp_length:
+  desc: null
+  value: 3
+n_eval_seq:
+  desc: null
+  value: 8
+n_shards:
+  desc: null
+  value: 3
+n_train_epochs:
+  desc: null
+  value: 10
+n_train_steps:
+  desc: null
+  value: 290
+n_wkrs:
+  desc: null
+  value: 4
+nli_name:
+  desc: null
+  value: howey/electra-small-mnli
+orig_cname:
+  desc: null
+  value: sentence
+orig_max_length:
+  desc: null
+  value: 32
+orig_padding_multiple:
+  desc: null
+  value: 8
+path_checkpoints:
+  desc: null
+  value: ../model_checkpoints/travis_attack/
+path_data:
+  desc: null
+  value: ./data/
+path_data_cache:
+  desc: null
+  value: /data/tproth/.cache/huggingface/datasets/
+path_logfile:
+  desc: null
+  value: ./logs/run_2023-02-03_151015.txt
+path_logs:
+  desc: null
+  value: ./logs/
+path_ref_pp_baselines:
+  desc: null
+  value: ./baselines/ref_pp_baselines/
+path_results:
+  desc: null
+  value: ./results/
+path_run:
+  desc: null
+  value: null
+pin_memory:
+  desc: null
+  value: true
+pp_letter_diff_threshold:
+  desc: null
+  value: 30
+pp_name:
+  desc: null
+  value: prithivida/parrot_paraphraser_on_T5
+ref_logp_coef:
+  desc: null
+  value: null
+remove_long_orig_examples:
+  desc: null
+  value: true
+remove_misclassified_examples:
+  desc: null
+  value: true
+reward_base:
+  desc: null
+  value: 0
+reward_clip_max:
+  desc: null
+  value: 4
+reward_clip_min:
+  desc: null
+  value: 0
+reward_fn:
+  desc: null
+  value: reward_fn_contradiction_and_letter_diff
+reward_penalty_type:
+  desc: null
+  value: kl_div
+reward_vm_multiplier:
+  desc: null
+  value: 12
+seed:
+  desc: null
+  value: 420
+shard_contiguous:
+  desc: null
+  value: false
+shuffle_train:
+  desc: null
+  value: false
+sts_name:
+  desc: null
+  value: sentence-transformers/paraphrase-MiniLM-L12-v2
+sts_threshold:
+  desc: null
+  value: 0.8
+unfreeze_last_n_layers:
+  desc: null
+  value: all
+use_small_ds:
+  desc: null
+  value: true
+vm_name:
+  desc: null
+  value: mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis
+vm_num_labels:
+  desc: null
+  value: 3
+vocab_size:
+  desc: null
+  value: 32128
+wandb:
+  desc: null
+  value:
+    entity: uts_nlp
+    log_grads: false
+    log_grads_freq: 1
+    log_token_entropy: true
+    log_token_probabilities: true
+    mode: online
+    project: travis_attack
+    run_notes: ''
+zero_grad_with_none:
+  desc: null
+  value: false

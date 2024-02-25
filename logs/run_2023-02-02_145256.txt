@@ -1,0 +1,2 @@
+02-02 14:52 src.utils    DEBUG    Disabling all loggers except those from the following libraries: ['src', 'wandb']
+02-02 14:53 src.data     INFO     Will load dataset financial with use_small_ds set to True

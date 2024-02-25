@@ -1,0 +1,8 @@
+02-02 14:58 src.utils    DEBUG    Disabling all loggers except those from the following libraries: ['src', 'wandb']
+02-02 14:58 src.data     INFO     Will load dataset financial with use_small_ds set to True
+02-02 14:59 src.data     DEBUG    Dataset lengths: {'train': 458, 'valid': 65, 'test': 55}
+02-02 14:59 src.data     DEBUG    Total training epochs:290
+02-02 14:59 src.data     DEBUG    Last batch size in each epoch is: {'train': 10, 'valid': 1, 'test': 7, 'train_eval': 10}
+02-02 14:59 src.data     DEBUG    Dataloader batch sizes are: {'train': [16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 10], 'valid': [16, 16, 16, 16, 1], 'test': [16, 16, 16, 7], 'train_eval': [16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 10]}
+02-02 14:59 wandb.sdk.lib.git DEBUG    git repository is invalid
+02-02 14:59 src.trainer  INFO     Launching initial eval run: train

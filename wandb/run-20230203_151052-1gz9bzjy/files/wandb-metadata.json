@@ -1,0 +1,17 @@
+{
+    "os": "Linux-3.10.0-1160.59.1.el7.x86_64-x86_64-with-glibc2.17",
+    "python": "3.10.9",
+    "heartbeatAt": "2023-02-03T04:10:59.017572",
+    "startedAt": "2023-02-03T04:10:52.351391",
+    "docker": null,
+    "gpu": "Quadro RTX 6000",
+    "gpu_count": 1,
+    "cpu_count": 16,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/tproth/Data/travis_release/run.py",
+    "host": "venus25.ihpc.uts.edu.au",
+    "username": "tproth",
+    "executable": "/data/tproth/travis_release/.conda/envs/constrained_adversarial_reward/bin/python"
+}

@@ -1,0 +1,30 @@
+name: constrained_adversarial_reward
+dependencies:
+  - numpy
+  - pandas
+  - jupyter
+  - plotly
+  - IPython
+  - pip 
+  - pip:
+    - transformers==4.19.2
+    - datasets==2.4.0
+    - wandb==0.12.10
+    - evaluate  
+    - sentence_transformers==1.1.0
+    - undecorated 
+    - GPUtil 
+    - fastcore 
+    - nltk
+    - textattack
+    - spacy 
+    - editdistance
+    - textstat
+    - psutil
+    - lexicalrichness
+    - tqdm
+    - hdbscan
+    - umap
+channels:
+  - conda-forge
+  - defaults
