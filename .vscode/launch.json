@@ -5,14 +5,32 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Run",
+            "name": "Train constrained adv model",
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/run.py",
             "console": "integratedTerminal",
-            "justMyCode": true, 
+            "env": {"PYDEVD_WARN_SLOW_RESOLVE_TIMEOUT": "2", "PYDEVD_WARN_EVALUATION_TIMEOUT": "500"},
+            "justMyCode": false,
             "args": [
-             ]
-        }
+                "--dataset_name", "trec", 
+                "--vm_name", "aychang/bert-base-cased-trec-coarse", 
+                "--orig_max_length", "48"
+               ]
+        },
+        {
+            "name": "run baselines",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/baselines.py",
+            "console": "integratedTerminal",
+            "env": {"PYDEVD_WARN_SLOW_RESOLVE_TIMEOUT": "2", "PYDEVD_WARN_EVALUATION_TIMEOUT": "500"},
+            "justMyCode": false,
+            "args": [
+                "--ds_name", "trec", 
+                "--vm_name", "aychang/bert-base-cased-trec-coarse", 
+                "--num_examples", "5"
+               ]
+        },
     ]
 }

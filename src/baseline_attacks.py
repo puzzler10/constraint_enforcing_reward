@@ -6,8 +6,7 @@ import functools, string, nltk, transformers
 from functools import partial
 import argparse
 
-from textattack.attack_recipes.iga_wang_2019 import IGAWang2019
-from textattack.attack_recipes.bae_garg_2019 import BAEGarg2019
+
 from sentence_transformers.util import pytorch_cos_sim
 from textattack.search_methods import GreedySearch
 from textattack.constraints import Constraint
@@ -21,8 +20,7 @@ from textattack.constraints import Constraint
 from textattack.constraints.pre_transformation import RepeatModification, StopwordModification
 from textattack.transformations import CompositeTransformation, WordSwapEmbedding, WordSwapMaskedLM
 from textattack.goal_functions import UntargetedClassification
-from textattack.attack_recipes.textfooler_jin_2019 import TextFoolerJin2019
-from textattack.attack_recipes.clare_li_2020 import CLARE2020
+
 from textattack.search_methods import GreedyWordSwapWIR
 
 from textattack.transformations.word_insertions import WordInsertionMaskedLM
@@ -31,9 +29,8 @@ from textattack.transformations.word_merges import  WordMergeMaskedLM
 from fastcore.basics import store_attr
 
 
-from .models import _prepare_vm_tokenizer_and_model, get_vm_probs, prepare_models, get_nli_probs, get_cola_probs
-from .utils import display_all, merge_dicts, append_df_to_csv, set_seed
-from .data import prep_dsd_rotten_tomatoes,prep_dsd_simple,prep_dsd_financial, ProcessedDataset
+from .models import prepare_models, get_nli_probs, get_cola_probs
+from .data import  ProcessedDataset
 
 from .config import Config
 
@@ -44,6 +41,7 @@ def setup_baselines_parser():
     parser.add_argument("--ds_name")
     parser.add_argument("--split")
     parser.add_argument("--attack_name")
+    parser.add_argument("--vm_name", required=True)
     parser.add_argument("--num_examples", type=int)
     parser.add_argument("--beam_sz", type=int)
     parser.add_argument("--max_candidates", type=int)
@@ -142,7 +140,9 @@ class AttackRecipes:
         store_attr()
         if   param_d['ds_name'] == "financial":              cfg = Config().adjust_config_for_financial_dataset()
         elif param_d['ds_name'] == "rotten_tomatoes":        cfg = Config().adjust_config_for_rotten_tomatoes_dataset()
+        elif param_d['ds_name'] == "trec":                   cfg = Config().adjust_config_for_trec_dataset()
         elif param_d['ds_name'] == "simple":                 cfg = Config().adjust_config_for_simple_dataset()
+        cfg.vm_name = param_d['vm_name']
         vm_tokenizer,vm_model,pp_tokenizer,_,_,sts_model,nli_tokenizer,nli_model,cola_tokenizer,cola_model,cfg = prepare_models(cfg)
         vm_tokenizer, vm_model, pp_tokenizer, _, _, sts_model, nli_tokenizer, nli_model, cola_tokenizer, cola_model, cfg
         self.ds = ProcessedDataset(cfg, vm_tokenizer, vm_model, pp_tokenizer, sts_model, load_processed_from_file=False)
@@ -236,7 +236,6 @@ class AttackRecipes:
             search_method = GreedyWordSwapWIR(wir_method="delete")
             attack = Attack(common_class.goal_function, common_class.constraints, transformation, search_method)
             return attack
-
 
     class IGA_mod(AttackRecipe): 
         @staticmethod

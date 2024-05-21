@@ -3,7 +3,6 @@ __all__ = ['check_no_nans_or_infs', 'check_parameters_update', 'print_info_on_ge
 
 import torch
 
-
 def check_no_nans_or_infs(x):
     assert torch.all(~torch.isnan(x))
     assert torch.all(~torch.isneginf(x))

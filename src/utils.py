@@ -11,13 +11,11 @@ from threading import Thread
 import logging
 logger = logging.getLogger("src.utils")
 
-
 def set_seed(seed):
     """Sets all seeds for the session"""
     torch.manual_seed(seed)
     torch.cuda.manual_seed(seed)
     np.random.seed(seed)
-
 
 
 def set_session_options():
@@ -56,7 +54,9 @@ def setup_parser():
     parser = argparse.ArgumentParser()
 
     ## General parameters
-    parser.add_argument("--dataset_name", choices=['simple', 'rotten_tomatoes', 'financial'])
+    parser.add_argument("--dataset_name", choices=['simple', 'rotten_tomatoes', 'financial', 'trec'])
+    parser.add_argument("--vm_name", type=str)
+    parser.add_argument("--orig_max_length", type=int)
     parser.add_argument("--lr", type=float)
     parser.add_argument("--acc_steps", type=int)
     parser.add_argument("--seed", type=int)
@@ -155,11 +155,17 @@ def update_config_with_parsed_arguments(cfg, newargs):
         cfg.gen_params_eval['top_p'] = None
         cfg.gen_params_eval['temperature'] = None
 
+
+    # these adjust config methods set the vm
     if   cfg.dataset_name == "simple":           cfg.adjust_config_for_simple_dataset()
     elif cfg.dataset_name == "rotten_tomatoes":  cfg.adjust_config_for_rotten_tomatoes_dataset()
     elif cfg.dataset_name == "financial":        cfg.adjust_config_for_financial_dataset()
+    elif cfg.dataset_name == "trec":             cfg.adjust_config_for_trec_dataset()
     cfg._validate_n_epochs()
     cfg.gen_params_eval = cfg._get_gen_params_eval()
+
+    # Overwrite the vm if specified in the parser.  
+    if newargs["vm_name"] is not None:           setattr(cfg, 'vm_name', newargs["vm_name"]) 
     return cfg
 
 
@@ -185,8 +191,6 @@ def print_device_info():
     print('__pyTorch VERSION:', torch.__version__)
     print('__CUDA VERSION', )
     from subprocess import call
-    # call(["nvcc", "--version"]) does not work
-    #! nvcc --version
     print('__CUDNN VERSION:', torch.backends.cudnn.version())
     print('__Number CUDA Devices:', torch.cuda.device_count())
     print('__Devices')

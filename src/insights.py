@@ -36,12 +36,9 @@ def get_training_dfs(path_run, postprocessed=False):
 def postprocess_df(df, filter_idx=None, num_proc=min(8, psutil.cpu_count())):
     """set df to one of training_step, train, valid, test
     filter_idx - for testing (remove later) """
-    # num_proc=8 seems pretty good - diminishing returns and we may as well leave some CPU for others
     df = df.sort_values(by=['idx', "epoch"], axis=0)
     if filter_idx is not None:   df = df.query("idx <= @filter_idx")  # for testing purposes
-    # Getting weird behaviour with group_by's so binning some of the numeric values
     for col in ['sts_scores','vm_scores','reward_pp', 'pp_truelabel_probs']:  df.loc[:, col] = df.loc[:, col].round(5)
-    # Add metrics
     df = _add_number_of_unique_pps_per_idx(df)
     df = _add_number_of_pp_changes_per_idx(df)
     df = _add_epoch_of_first_label_flip(   df)

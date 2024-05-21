@@ -1,6 +1,5 @@
 __all__ = ['logger', 'Trainer']
 
-
 import torch, wandb, gc, numpy as np, pandas as pd, os, copy, warnings, string
 from wandb.data_types import Histogram
 from tqdm.auto import tqdm
@@ -30,7 +29,6 @@ class Trainer:
 
     def train(self):
         self._setup_wandb_run()
-        #%lprun -f _training_function -f  get_pp_logp -f training_step -f  reward_fn -f  loss_fn -f eval_dl  notebook_launcher(_training_function, args=(pp_model, vm_model, dld_tkn, dld_raw, optimizer), num_processes=1)
         self._training_function()
 
     def _is_last_epoch(self): return (self.early_stopping_flag and self._cfg.early_stopping) or (self.epoch == self._cfg.n_train_epochs)
@@ -41,7 +39,6 @@ class Trainer:
         if self._cfg.wandb['log_grads']: wandb.watch(self.pp_model, log='gradients', log_freq=self._cfg.wandb['log_grads_freq'])
 
     def _setup_data_stores(self):
-     #   self.eval_epoch_df_d = dict(train=[], valid=[], test=[]) # each eval epoch dataframe appended to here
         self.orig_baselines = dict()    # keys are idx, values are mean reward per (orig, pp_l) during training eval
         self.initial_metric_d = dict(train=dict(), valid=dict(), test=dict())  # used for wandb metrics at the end
         # Early stopping
@@ -143,7 +140,6 @@ class Trainer:
                 num_return_sequences=1, num_beams=1, **self._cfg.gen_params_train,
                 min_length=self._cfg.min_pp_length, max_length=self._cfg.max_pp_length,
                 return_dict_in_generate=True, output_scores=True)  # , remove_invalid_values=False
-               # pad_token_id = self.pp_tokenizer.pad_token_id, eos_token_id = self.pp_tokenizer.eos_token_id
             pp_l = self.pp_tokenizer.batch_decode(pp_output.sequences, skip_special_tokens=True)
         # Update_batch_size_and_length_variables
         self.orig_batch_size,self.orig_length =   data['input_ids'].shape[0],   data['input_ids'].shape[1]

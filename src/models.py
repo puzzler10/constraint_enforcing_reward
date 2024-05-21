@@ -15,7 +15,6 @@ logger = logging.getLogger("src.models")
 def _prepare_pp_tokenizer_and_model(cfg):
     """As well as preparing the pp model and tokenizer this function also adds a new method `generate_with_grad` to
     the pp model so that we can backprop when generating."""
-    # PEGASUS takes about 3GB memory space up on the GPU
     # change the `local_files_only` argument if changing the model name
     pp_model = _load_pp_model(cfg)
     pp_model.train()

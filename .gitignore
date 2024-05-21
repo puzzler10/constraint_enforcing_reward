@@ -1,1 +1,10 @@
 .conda/
+.ipynb_checkpoints/
+.vscode/
+__pycache__/
+baselines/
+logs/
+wandb/
+results/
+notebooks/
+env_setup.md

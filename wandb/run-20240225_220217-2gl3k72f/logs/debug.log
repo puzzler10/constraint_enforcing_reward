@@ -23,3 +23,168 @@ config: {'pp_name': 'prithivida/parrot_paraphraser_on_T5', 'dataset_name': 'fina
 2024-02-25 22:02:27,278 INFO    MainThread:2821627 [wandb_run.py:_redirect():1706] Redirecting console.
 2024-02-25 22:02:27,280 INFO    MainThread:2821627 [wandb_run.py:_redirect():1762] Redirects installed.
 2024-02-25 22:02:27,280 INFO    MainThread:2821627 [wandb_init.py:init():651] run started, returning control to user process
+2024-02-25 23:18:49,759 INFO    MainThread:2821627 [wandb_run.py:finish():1468] finishing run uts_nlp/travis_attack/2gl3k72f
+2024-02-25 23:18:49,760 INFO    MainThread:2821627 [wandb_run.py:_atexit_cleanup():1797] got exitcode: 0
+2024-02-25 23:18:49,762 INFO    MainThread:2821627 [wandb_run.py:_restore():1769] restore
+2024-02-25 23:18:52,059 INFO    MainThread:2821627 [wandb_run.py:_wait_for_finish():1929] got exit ret: file_counts {
+  wandb_count: 1
+  artifact_count: 28783
+  other_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 409468255
+  total_bytes: 409468255
+  deduped_bytes: 22542171
+}
+
+2024-02-25 23:18:52,390 INFO    MainThread:2821627 [wandb_run.py:_wait_for_finish():1929] got exit ret: file_counts {
+  wandb_count: 1
+  artifact_count: 28783
+  other_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 409468255
+  total_bytes: 409468255
+  deduped_bytes: 22542171
+}
+
+2024-02-25 23:18:52,784 INFO    MainThread:2821627 [wandb_run.py:_wait_for_finish():1929] got exit ret: file_counts {
+  wandb_count: 1
+  artifact_count: 28783
+  other_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 409468255
+  total_bytes: 409468255
+  deduped_bytes: 22542171
+}
+
+2024-02-25 23:18:52,919 INFO    MainThread:2821627 [wandb_run.py:_wait_for_finish():1929] got exit ret: file_counts {
+  wandb_count: 6
+  artifact_count: 28783
+  other_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 409468255
+  total_bytes: 409630753
+  deduped_bytes: 22542171
+}
+
+2024-02-25 23:18:53,034 INFO    MainThread:2821627 [wandb_run.py:_wait_for_finish():1929] got exit ret: file_counts {
+  wandb_count: 6
+  artifact_count: 28783
+  other_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 409468255
+  total_bytes: 409630753
+  deduped_bytes: 22542171
+}
+
+2024-02-25 23:18:53,397 INFO    MainThread:2821627 [wandb_run.py:_wait_for_finish():1929] got exit ret: file_counts {
+  wandb_count: 6
+  artifact_count: 28783
+  other_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 409468255
+  total_bytes: 409630753
+  deduped_bytes: 22542171
+}
+
+2024-02-25 23:18:53,512 INFO    MainThread:2821627 [wandb_run.py:_wait_for_finish():1929] got exit ret: file_counts {
+  wandb_count: 6
+  artifact_count: 28783
+  other_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 409475615
+  total_bytes: 409630753
+  deduped_bytes: 22542171
+}
+
+2024-02-25 23:18:53,626 INFO    MainThread:2821627 [wandb_run.py:_wait_for_finish():1929] got exit ret: file_counts {
+  wandb_count: 6
+  artifact_count: 28783
+  other_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 409630753
+  total_bytes: 409630753
+  deduped_bytes: 22542171
+}
+
+2024-02-25 23:18:53,739 INFO    MainThread:2821627 [wandb_run.py:_wait_for_finish():1929] got exit ret: file_counts {
+  wandb_count: 6
+  artifact_count: 28783
+  other_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 409630753
+  total_bytes: 409630753
+  deduped_bytes: 22542171
+}
+
+2024-02-25 23:18:53,855 INFO    MainThread:2821627 [wandb_run.py:_wait_for_finish():1929] got exit ret: file_counts {
+  wandb_count: 6
+  artifact_count: 28783
+  other_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 409630753
+  total_bytes: 409630753
+  deduped_bytes: 22542171
+}
+
+2024-02-25 23:18:54,220 INFO    MainThread:2821627 [wandb_run.py:_wait_for_finish():1929] got exit ret: file_counts {
+  wandb_count: 6
+  artifact_count: 28783
+  other_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 409630753
+  total_bytes: 409630753
+  deduped_bytes: 22542171
+}
+
+2024-02-25 23:18:54,341 INFO    MainThread:2821627 [wandb_run.py:_wait_for_finish():1929] got exit ret: file_counts {
+  wandb_count: 6
+  artifact_count: 28783
+  other_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 409630753
+  total_bytes: 409630753
+  deduped_bytes: 22542171
+}
+
+2024-02-25 23:18:55,309 INFO    MainThread:2821627 [wandb_run.py:_wait_for_finish():1929] got exit ret: file_counts {
+  wandb_count: 6
+  artifact_count: 28783
+  other_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 409630753
+  total_bytes: 409630753
+  deduped_bytes: 22542171
+}
+
+2024-02-25 23:18:55,646 INFO    MainThread:2821627 [wandb_run.py:_wait_for_finish():1929] got exit ret: done: true
+exit_result {
+}
+file_counts {
+  wandb_count: 6
+  artifact_count: 28783
+  other_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 409630753
+  total_bytes: 409630753
+  deduped_bytes: 22542171
+}
+local_info {
+}
+
+2024-02-25 23:18:57,308 INFO    MainThread:2821627 [wandb_run.py:_append_history():2144] rendering history
+2024-02-25 23:18:57,314 INFO    MainThread:2821627 [wandb_run.py:_append_summary():2102] rendering summary
+2024-02-25 23:18:57,315 INFO    MainThread:2821627 [wandb_run.py:_append_files():2194] logging synced files

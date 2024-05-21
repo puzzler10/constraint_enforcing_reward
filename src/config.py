@@ -1,11 +1,8 @@
 
 __all__ = ['Config']
 
-
 import torch
 import datetime
-
-
 
 class Config:
     def __init__(self):
@@ -16,7 +13,7 @@ class Config:
         # 2. prithivida/parrot_paraphraser_on_T5 (850 MB)
         # 3. ramsrigouthamg/t5-large-paraphraser-diverse-high-quality (2.75 GB)
         self.pp_name = "prithivida/parrot_paraphraser_on_T5"
-        self.dataset_name = "financial"
+        self.dataset_name = "trec"
         # STS options
         # 1. sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
         # 2. sentence-transformers/paraphrase-MiniLM-L12-v2
@@ -32,18 +29,18 @@ class Config:
         ### Important parameters
         self.seed = 420
         self.use_small_ds = False
-        self.lr = 8e-5
+        self.lr = 1e-4
 
-        self.batch_size_train = 16
-        self.batch_size_eval = 16
+        self.batch_size_train = 32
+        self.batch_size_eval = 32
         self.acc_steps = 2
         self.eval_freq = 1
 
         self.early_stopping_min_epochs = 8
-        self.n_train_epochs = 10
+        self.n_train_epochs = 50
 
         self.reward_fn = "reward_fn_contradiction_and_letter_diff"
-        self.reward_clip_max = 4
+        self.reward_clip_max = 10
         self.reward_clip_min = 0
         self.reward_base = 0
         self.reward_vm_multiplier = 12
@@ -91,9 +88,9 @@ class Config:
 
         ### W&B parameters
         self.wandb = dict(
-            project = "travis_attack",
-            entity = "uts_nlp",
-            mode = "disabled",  # set to "disabled" to turn off wandb, "online" to enable it
+            project = "project_name",
+            entity = "entity_name",
+            # mode = "disabled",  # set to "disabled" to turn off wandb, "online" to enable it
             log_grads = False,
             log_grads_freq = 1,  # no effect if wandb_log_grads is False
             log_token_entropy = True,
@@ -122,6 +119,7 @@ class Config:
         if self.dataset_name   == "simple":           self.adjust_config_for_simple_dataset()
         elif self.dataset_name == "rotten_tomatoes":  self.adjust_config_for_rotten_tomatoes_dataset()
         elif self.dataset_name == "financial":        self.adjust_config_for_financial_dataset()
+        elif self.dataset_name == "trec":             self.adjust_config_for_trec_dataset()
 
         # Checks
         self._validate_n_epochs()
@@ -142,8 +140,10 @@ class Config:
         return gen_params_eval[self.decode_method_eval]
 
     def _select_vm_model(self):
-        if   self.dataset_name in ["rotten_tomatoes", "simple"]:  self.vm_name = "textattack/distilbert-base-uncased-rotten-tomatoes"
-        elif self.dataset_name == "financial":                    self.vm_name = "mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis"
+        pass
+        #if   self.dataset_name in ["rotten_tomatoes", "simple"]:  self.vm_name = "textattack/distilbert-base-uncased-rotten-tomatoes"
+        #elif self.dataset_name == "financial":                    self.vm_name = "mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis"
+        # elif self.dataset_name == "trec":                         self.vm_name = "aychang/distilbert-base-cased-trec-coarse"
 
 
     def adjust_config_for_simple_dataset(self):
@@ -171,6 +171,14 @@ class Config:
         """Adjust config for the financial dataset."""
         self.dataset_name = "financial"
         self.orig_cname = "sentence"
+        self.label_cname = 'label'
+        self._select_vm_model()
+        return self
+
+    def adjust_config_for_trec_dataset(self): 
+        """Adjust config for the TREC dataset."""
+        self.dataset_name = "trec"
+        self.orig_cname = "text"
         self.label_cname = 'label'
         self._select_vm_model()
         return self
