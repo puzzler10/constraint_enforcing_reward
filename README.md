@@ -1,10 +1,10 @@
 
 
-This repo contains code for the paper "A Constraint-Enforcing Reward for Adversarial Attacks on Text Classifiers", which has this abstract
+This repo contains code for the paper "A Constraint-Enforcing Reward for Adversarial Attacks on Text Classifiers", available [here](https://arxiv.org/abs/2405.11904) with the abstract
 
 > Text classifiers are vulnerable to adversarial examples --- correctly-classified examples that are deliberately transformed to be misclassified while satisfying acceptability constraints. The conventional approach to finding adversarial examples is to define and solve a combinatorial optimisation problem over a space of allowable transformations. While effective, this approach is slow and limited by the choice of transformations. An alternate approach is to directly generate adversarial examples by fine-tuning a pre-trained language model, as is commonly done for other text-to-text tasks. This approach promises to be much quicker and more expressive, but is relatively unexplored. For this reason, in this work we train an encoder-decoder paraphrase model to generate a diverse range of adversarial examples. For training, we adopt a reinforcement learning algorithm and propose a constraint-enforcing reward that promotes the generation of valid adversarial examples. Experimental results over two text classification datasets show that our model has achieved a higher success rate than the original paraphrase model, and overall has proved more effective than other competitive attacks. Finally, we show how key design choices impact the generated examples and discuss the strengths and weaknesses of the proposed approach.
 
-The code is provided as a general guide only. 
+The code is provided here for the paper and is intended as a general guide only. 
 
 ## Installation 
 
