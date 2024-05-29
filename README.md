@@ -21,8 +21,6 @@ For a smaller environment, try starting from a basic python install with the fol
 * datasets==2.4.0
 * evaluate==0.4.0
 
-
-
 ## Running 
 After activating the virtual environment, run the main file with
 
@@ -34,6 +32,8 @@ This will run the file with the default parameters that are specified in the ini
 ```
 python run.py --dataset_name=financial --decode_method_eval=sample --gen_train_temperature=0.85 --kl_coef=0.4 --lr=0.0001 --n_eval_seq=8  --seed=1001
 ```
+
+You will probably have to update the path variables (e.g. `path_checkpoints`) in the config file. 
 
 The code can log to Weights & Biases (wandb). It is disabled by default, which is set by calling `wandb.init(mode="disabled")` in the code. To enable WandB, update the config file (see comments in the file) and set the project and entity variables in the Config `__init__` method. 
 
