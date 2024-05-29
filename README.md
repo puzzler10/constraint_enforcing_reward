@@ -30,7 +30,7 @@ After activating the virtual environment, run the main file with
 python run.py
 ```
 
-This will run the file with the default parameters that are specified in the init function of Config.py. To adjust any of them, you can either change the parameters in this file, or run with specifying parameters as flags, such as 
+This will run the file with the default parameters that are specified in the init function of src/Config.py. To adjust any of them, you can either change the parameters in this file, or run with specifying parameters as flags, such as 
 ```
 python run.py --dataset_name=financial --decode_method_eval=sample --gen_train_temperature=0.85 --kl_coef=0.4 --lr=0.0001 --n_eval_seq=8  --seed=1001
 ```
