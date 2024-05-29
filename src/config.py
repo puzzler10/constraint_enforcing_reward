@@ -88,9 +88,9 @@ class Config:
 
         ### W&B parameters
         self.wandb = dict(
+            mode = "disabled",  # set to "disabled" to turn off wandb, "online" to enable it. If online, enter project and entity name.
             project = "project_name",
             entity = "entity_name",
-            # mode = "disabled",  # set to "disabled" to turn off wandb, "online" to enable it
             log_grads = False,
             log_grads_freq = 1,  # no effect if wandb_log_grads is False
             log_token_entropy = True,
@@ -144,7 +144,6 @@ class Config:
         #if   self.dataset_name in ["rotten_tomatoes", "simple"]:  self.vm_name = "textattack/distilbert-base-uncased-rotten-tomatoes"
         #elif self.dataset_name == "financial":                    self.vm_name = "mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis"
         # elif self.dataset_name == "trec":                         self.vm_name = "aychang/distilbert-base-cased-trec-coarse"
-
 
     def adjust_config_for_simple_dataset(self):
         """Adjust config for the simple dataset."""

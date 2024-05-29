@@ -13,9 +13,10 @@
             "env": {"PYDEVD_WARN_SLOW_RESOLVE_TIMEOUT": "2", "PYDEVD_WARN_EVALUATION_TIMEOUT": "500"},
             "justMyCode": false,
             "args": [
-                "--dataset_name", "trec", 
+                "--dataset_name", "rotten_tomatoes", 
                 "--vm_name", "aychang/bert-base-cased-trec-coarse", 
-                "--orig_max_length", "48"
+                "--orig_max_length", "16",
+                "--n_train_epochs", "1"
                ]
         },
         {

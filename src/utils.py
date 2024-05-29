@@ -3,7 +3,6 @@ __all__ = ['logger', 'set_seed', 'set_session_options', 'setup_logging', 'setup_
            'show_gpu', 'round_t', 'merge_dicts', 'display_all', 'print_important_cfg_vars', 'unpack_nested_lists_in_df',
            'append_df_to_csv', 'robust_rmtree', 'test_pp_model', 'start_wandb_run', 'resume_wandb_run', 'table2df']
 
-
 import torch, numpy as np, pandas as pd, time, GPUtil, wandb, os, shutil, subprocess, argparse
 from timeit import default_timer as timer
 from pprint import pprint
@@ -17,13 +16,11 @@ def set_seed(seed):
     torch.cuda.manual_seed(seed)
     np.random.seed(seed)
 
-
 def set_session_options():
     """Sets some useful options for the sesson"""
     os.environ["TOKENIZERS_PARALLELISM"] = "true"  # set to false if not working
     pd.set_option("display.max_colwidth", 400)
     pd.options.mode.chained_assignment = None
-
 
 def setup_logging(cfg, disable_other_loggers=True):
     """taken from this recipe from the logging cookbook:
@@ -46,8 +43,6 @@ def setup_logging(cfg, disable_other_loggers=True):
         for log_name, log_obj in logging.Logger.manager.loggerDict.items():
             if not any(mod in log_name for mod in allowed_modules):
                 log_obj.disabled = True
-
-
 
 def setup_parser():
     """Set up command line options"""
@@ -96,9 +91,7 @@ def setup_parser():
     parser.add_argument("--kl_coef", type=float)
     parser.add_argument("--ref_logp_coef", type=float)
 
-    #parser.add_argument('args', nargs=argparse.REMAINDER)  # activate to put keywords in kwargs.
     return parser
-
 
 def update_config_with_parsed_arguments(cfg, newargs):
     """newargs: dict of values from the parser"""
@@ -168,7 +161,6 @@ def update_config_with_parsed_arguments(cfg, newargs):
     if newargs["vm_name"] is not None:           setattr(cfg, 'vm_name', newargs["vm_name"]) 
     return cfg
 
-
 class timecode:
     """This class is used for timing code"""
     def __enter__(self):
@@ -177,7 +169,6 @@ class timecode:
 
     def __exit__(self, type, value, traceback):
         self.t = timer() - self.t0
-
 
 def print_device_info():
     """
@@ -200,8 +191,6 @@ def print_device_info():
     print("Device name:", torch.cuda.get_device_name())
     print ('Current cuda device ', torch.cuda.current_device())
     print("#################################################################")
-
-
 
 def dump_tensors(gpu_only=True):
     """Prints a list of the Tensors being tracked by the garbage collector.
@@ -231,8 +220,6 @@ def dump_tensors(gpu_only=True):
             pass
     print("Total size:", total_size)
 
-
-
 class Monitor(Thread):
     """Use this to check that you are using the GPU during your pytorch functions and to track memory usage
     of the GPU's as well."""
@@ -249,8 +236,6 @@ class Monitor(Thread):
 
     def stop(self):
         self.stopped = True
-
-
 
 def show_gpu(msg):
     """
@@ -270,25 +255,21 @@ def show_gpu(msg):
     pct = used/total
     return f"{msg} {100*pct:2.1f}% ({used} out of {total})"
 
-
 def round_t(t, dp=2):
     """Return rounded tensors for easy viewing. t is a tensor, dp=decimal places"""
     if t.device.type == "cuda": t=t.cpu()
     return t.detach().numpy().round(dp)
-
 
 def merge_dicts(d1, d2):
     """Merge the two dicts and return the result. Check first that there is no key overlap."""
     assert set(d1.keys()).isdisjoint(d2.keys())
     return {**d1, **d2}
 
-
 def display_all(df):
     with pd.option_context("display.max_rows", 3000):
         with pd.option_context("display.max_columns", 1000):
             with pd.option_context("max_colwidth", 480):
                 display(df)
-
 
 def print_important_cfg_vars(cfg):
     d = vars(cfg)
@@ -301,12 +282,10 @@ def print_important_cfg_vars(cfg):
     d1 = {k:v for k,v in d.items() if k not in ignore_keys}
     pprint(d1, sort_dicts=False)
 
-
 def unpack_nested_lists_in_df(df, scalar_cols=[]):
     """Take a df where we have lists stored in the cells and convert it to many rows.
     Put all columns without lists stored in the cells into `scalar_cols`."""
     return df.set_index(scalar_cols).apply(pd.Series.explode).reset_index()
-
 
 def append_df_to_csv(df, path):
     """Checks columns and other stuff before appending"""
@@ -318,7 +297,6 @@ def append_df_to_csv(df, path):
         raise Exception("Columns and column order of dataframe and csv file do not match.")
     else:
         df.to_csv(path, mode='a', index=False, header=False)
-
 
 def robust_rmtree(path, logger=None, max_retries=6):
     """Robustly tries to delete paths.
@@ -341,7 +319,6 @@ def robust_rmtree(path, logger=None, max_retries=6):
     # Final attempt, pass any Exceptions up to caller.
     shutil.rmtree(path)
 
-
 def test_pp_model(text, pp_tokenizer, pp_model):
     """Get some paraphrases for a bit of text"""
     print("ORIGINAL\n",text)
@@ -351,7 +328,6 @@ def test_pp_model(text, pp_tokenizer, pp_model):
     translated = pp_model.generate(**batch, num_beams=num_beams, num_return_sequences=num_return_sequences, length_penalty=1)
     tgt_text = pp_tokenizer.batch_decode(translated, skip_special_tokens=True)
     return tgt_text
-
 
 def start_wandb_run(cfg, log_code=True):
     """Start wandb run, set up paths, update cfg, create dir for model artifacts if needed,"""
@@ -364,12 +340,10 @@ def start_wandb_run(cfg, log_code=True):
     if not os.path.exists(cfg.path_run): os.makedirs(cfg.path_run, exist_ok=True)
     return run, cfg
 
-
 def resume_wandb_run(cfg):
     run = wandb.init(project="project_name", entity="entity_name", config=vars(cfg),
                      resume='must', id=cfg.run_id , mode=cfg.wandb['mode'])
     return run
-
 
 def table2df(table):
     """Convert wandb table to pandas dataframe"""

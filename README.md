@@ -30,15 +30,15 @@ After activating the virtual environment, run the main file with
 python run.py
 ```
 
-The command accepts parameters as flags (check the code for the full list of flags)
-
+This will run the file with the default parameters that are specified in the init function of Config.py. To adjust any of them, you can either change the parameters in this file, or run with specifying parameters as flags, such as 
 ```
 python run.py --dataset_name=financial --decode_method_eval=sample --gen_train_temperature=0.85 --kl_coef=0.4 --lr=0.0001 --n_eval_seq=8  --seed=1001
 ```
 
+The code can log to Weights & Biases (wandb). It is disabled by default, which is set by calling `wandb.init(mode="disabled")` in the code. To enable WandB, update the config file (see comments in the file) and set the project and entity variables in the Config `__init__` method. 
+
 Other datasets will be downloaded by the script.  The `./data/` directory contains a simple dataset that is useful for testing. 
 
-The code logs to Weights & Biases (wandb). To turn this off, adjust the code so that `wandb.init(mode="disabled")` or set the environment variable WANDB_MODE=disabled. Else, set the project and entity variables in the Config `__init__` method. 
 
 To run the baselines, run (for example)
 ```

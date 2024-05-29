@@ -33,7 +33,6 @@ if __name__ == "__main__":
     optimizer = get_optimizer(cfg, pp_model)
     ds = ProcessedDataset(cfg, vm_tokenizer, vm_model, pp_tokenizer, sts_model, load_processed_from_file=False)
 
-    cfg.wandb['mode'] = 'online'
     trainer = Trainer(cfg, vm_tokenizer,vm_model,pp_tokenizer,pp_model,ref_pp_model,sts_model,nli_tokenizer,nli_model,cola_tokenizer,cola_model, optimizer,
             ds)
     print_important_cfg_vars(cfg)
