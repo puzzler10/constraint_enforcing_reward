@@ -39,7 +39,6 @@ The code can log to Weights & Biases (wandb). It is disabled by default, which i
 
 Other datasets will be downloaded by the script.  The `./data/` directory contains a simple dataset that is useful for testing. 
 
-
 To run the baselines, run (for example)
 ```
 python -m baselines.py --ds_name rotten_tomatoes 

@@ -106,9 +106,9 @@ class Config:
         ## Globals
         self.datetime_run = datetime.datetime.now().strftime("%Y-%m-%d_%H%M%S")
         self.path_data = "./data/"
-        self.path_checkpoints = "../model_checkpoints/travis_attack/"
+        self.path_checkpoints = "checkpoints/"  # fill this out yourself
         self.path_run = None  # keep as None; this is automatically filled out by trainer (code in utils)
-        self.path_data_cache = "/data/tproth/.cache/huggingface/datasets/"  # fill this out yourself
+        self.path_data_cache = "cache/"  # fill this out yourself
         self.path_logs = f"./logs/"
         self.path_logfile = self.path_logs + f"run_{self.datetime_run}.txt"
         self.path_ref_pp_baselines = "./baselines/ref_pp_baselines/"
